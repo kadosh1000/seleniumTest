@@ -6,10 +6,9 @@ const driver = await new Builder().forBrowser("chrome").build();
 await driver.get('https://phptravels.com/demo');
 const headerText = await (await driver.findElement(By.id('header-title'))).getAttribute("innerHTML");
 assert.equal('Application Test Drive', headerText);
-console.log(headerText);
 pressOnIntegrationsTab(driver);
 }
-
+console.log("Application Test Drive")
 async function pressOnIntegrationsTab(driver){
 await (await driver.findElement(By.className("clearfix"))).click();
 }
