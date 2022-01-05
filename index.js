@@ -8,10 +8,10 @@ const headerText = await (await driver.findElement(By.id('header-title'))).getAt
 assert.equal('Application Test Drive', headerText);
 pressOnIntegrationsTab(driver);
 }
-console.log("Application Test Drive")
 async function pressOnIntegrationsTab(driver){
 await (await driver.findElement(By.className("clearfix"))).click();
 }
 
-checkIfTitleExistsAndNavigate();
-
+(async function () {
+    return await checkIfTitleExistsAndNavigate();
+})();
