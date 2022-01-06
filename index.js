@@ -21,6 +21,7 @@ async function pressOnIntegrationsTab(driver) {
 
 (async function () {
     try {
+        process.env.DISPLAY=':10.0'
         await checkIfTitleExistsAndNavigate();
         process.exit(1);
     } catch (err) {
