@@ -21,4 +21,7 @@ async function pressOnIntegrationsTab(driver) {
     await (await driver.findElement(By.className("clearfix"))).click();
 }
 
-checkIfTitleExistsAndNavigate();
+checkIfTitleExistsAndNavigate().catch(err=>{
+    console.error(err);
+    process.exit(1);
+});
