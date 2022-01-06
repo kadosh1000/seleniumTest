@@ -9,6 +9,7 @@ chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 async function checkIfTitleExistsAndNavigate() {
     // Use headless chrome for automations
     const options = new chrome.Options();
+    options.addArguments("headless");
     
     const driver = await new Builder().forBrowser("chrome").setChromeOptions(options).build();
     await driver.get("https://phptravels.com/demo");
