@@ -13,8 +13,8 @@ async function checkIfTitleExistsAndNavigate() {
     options.addArguments("--no-sandbox");
     options.addArguments("--disable-dev-shm-usage");
     options.addArguments("--disable-extensions");
-    options.addArguments("--disable-gpu");
-    options.addArguments("disable-infobars");
+    // options.addArguments("--disable-gpu");
+    // options.addArguments("disable-infobars");
     
     const driver = await new Builder().forBrowser("chrome").setChromeOptions(options).build();
     await driver.get("https://phptravels.com/demo");
