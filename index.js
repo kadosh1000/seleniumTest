@@ -21,13 +21,14 @@ async function pressOnIntegrationsTab(driver) {
     await (await driver.findElement(By.className("clearfix"))).click();
 }
 
-(async function () {
-    try {
-        process.env.DISPLAY=':10.0'
-        await checkIfTitleExistsAndNavigate();
-        process.exit(0);
-    } catch (err) {
-        console.error(err);
-        process.exit(1);
-    }
-})();
+checkIfTitleExistsAndNavigate();
+// (async function () {
+//     try {
+//         process.env.DISPLAY=':10.0'
+//         await checkIfTitleExistsAndNavigate();
+//         process.exit(0);
+//     } catch (err) {
+//         console.error(err);
+//         process.exit(1);
+//     }
+// })();
