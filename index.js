@@ -11,8 +11,8 @@ async function checkIfTitleExistsAndNavigate() {
     const options = new chrome.Options();
     options.addArguments("--headless");
     options.addArguments("--no-sandbox");
-    options.addArguments("--disable-dev-shm-usage");
-    options.addArguments("--disable-extensions");
+    // options.addArguments("--disable-dev-shm-usage");
+    // options.addArguments("--disable-extensions");
     // options.addArguments("--disable-gpu");
     // options.addArguments("disable-infobars");
     
