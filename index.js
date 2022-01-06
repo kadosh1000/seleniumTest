@@ -6,7 +6,6 @@ const chrome = require("selenium-webdriver/chrome");
 const chromedriver = require("chromedriver");
 chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 
-chrome;
 
 async function checkIfTitleExistsAndNavigate() {
     // Use headless chrome for automations
