@@ -9,7 +9,6 @@ chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 async function checkIfTitleExistsAndNavigate() {
     // Use headless chrome for automations
     const options = new chrome.Options();
-    throw "issue";
     options.addArguments("no-sandbox","headless");
     
     const driver = await new Builder().forBrowser("chrome").setChromeOptions(options).build();
@@ -23,13 +22,3 @@ async function pressOnIntegrationsTab(driver) {
 }
 
 checkIfTitleExistsAndNavigate();
-// (async function () {
-//     try {
-//         process.env.DISPLAY=':10.0'
-//         await checkIfTitleExistsAndNavigate();
-//         process.exit(0);
-//     } catch (err) {
-//         console.error(err);
-//         process.exit(1);
-//     }
-// })();
