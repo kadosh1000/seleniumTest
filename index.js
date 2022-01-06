@@ -2,12 +2,15 @@ const { Builder, By } = require("selenium-webdriver");
 var assert = require("assert");
 
 // To prevenet the need to install chromedriver on the agent or doing any PATH handling
-const chrome = require('selenium-webdriver/chrome');
-const chromedriver = require('chromedriver');
+const chrome = require("selenium-webdriver/chrome");
+const chromedriver = require("chromedriver");
 chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 
+chrome;
+
 async function checkIfTitleExistsAndNavigate() {
-    const driver = await new Builder().forBrowser("chrome").build();
+    // Use headless chrome for automations
+    const driver = await new Builder().forBrowser("chrome").setChromeOptions("headless").build();
     await driver.get("https://phptravels.com/demo");
     const headerText = await (await driver.findElement(By.id("header-title"))).getAttribute("innerHTML");
     assert.equal("Application Test Drive", headerText);
@@ -18,12 +21,11 @@ async function pressOnIntegrationsTab(driver) {
 }
 
 (async function () {
-    try{
+    try {
         await checkIfTitleExistsAndNavigate();
         process.exit(1);
-    }
-    catch (err){
+    } catch (err) {
         console.error(err);
         process.exit(1);
     }
-})()
+})();
