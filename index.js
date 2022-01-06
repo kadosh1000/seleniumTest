@@ -1,4 +1,4 @@
-const { Builder, By } = require("selenium-webdriver");
+const { Builder, By, ChromeOptions } = require("selenium-webdriver");
 var assert = require("assert");
 
 // To prevenet the need to install chromedriver on the agent or doing any PATH handling
@@ -9,7 +9,11 @@ chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 
 async function checkIfTitleExistsAndNavigate() {
     // Use headless chrome for automations
-    const driver = await new Builder().forBrowser("chrome").setChromeOptions("headless").build();
+    const options = new chrome.Options();
+    options.addArguments("--no-sandbox");
+    options.addArguments("headless");
+    
+    const driver = await new Builder().forBrowser("chrome").setChromeOptions(options).build();
     await driver.get("https://phptravels.com/demo");
     const headerText = await (await driver.findElement(By.id("header-title"))).getAttribute("innerHTML");
     assert.equal("Application Test Drive", headerText);
