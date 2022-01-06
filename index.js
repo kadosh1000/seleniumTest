@@ -9,8 +9,8 @@ chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 async function checkIfTitleExistsAndNavigate() {
     // Use headless chrome for automations
     const options = new chrome.Options();
-    options.addArguments("--headless");
-    // options.addArguments("--no-sandbox");
+    // options.addArguments("--headless");
+    options.addArguments("--no-sandbox");
     // options.addArguments("--disable-dev-shm-usage");
     // options.addArguments("--disable-extensions");
     // options.addArguments("--disable-gpu");
