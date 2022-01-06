@@ -14,4 +14,4 @@ await (await driver.findElement(By.className("clearfix"))).click();
 
 (async function () {
     return await checkIfTitleExistsAndNavigate();
-})().then().catch(err=>process.exit(1));
+})().then().catch(err=>{console.error(err); process.exit(1);});
