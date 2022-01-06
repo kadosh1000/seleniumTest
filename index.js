@@ -9,13 +9,14 @@ chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
 async function checkIfTitleExistsAndNavigate() {
     // Use headless chrome for automations
     const options = new chrome.Options();
-    options.addArguments("no-sandbox","headless");
+    options.addArguments("no-sandbox");
     
     const driver = await new Builder().forBrowser("chrome").setChromeOptions(options).build();
     await driver.get("https://phptravels.com/demo");
     const headerText = await (await driver.findElement(By.id("header-title"))).getAttribute("innerHTML");
     assert.equal("Application Test Drive", headerText);
     await pressOnIntegrationsTab(driver);
+    driver.quit();
 }
 async function pressOnIntegrationsTab(driver) {
     await (await driver.findElement(By.className("clearfix"))).click();
